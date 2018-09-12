@@ -1,0 +1,140 @@
+$xl: "(max-width:" $media-xl + ")";
+$lg: "(max-width:" $media-lg + ")";
+$md: "(max-width:" $media-md + ")";
+$sm: "(max-width:" $media-sm + ")";
+$xs: "(max-width:" $media-xs + ")";
+
+$cols: 12;
+$gutter: 15px;
+$width: 1200px;
+
+@mixin container() {
+	max-width: $width;
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: 30px;
+	padding-right: 30px;
+	@include md{
+		padding-left: 15px;
+		padding-right: 15px;
+	}
+}
+
+
+@mixin row() {
+	display: flex;
+	flex-wrap: wrap;
+	margin-left: -$gutter;
+	margin-right: -$gutter;
+}
+
+@mixin flex {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+@mixin size-flex() {
+	flex-grow: 1;
+}
+
+@mixin col() {
+	margin-left: $gutter;
+	margin-right: $gutter;
+	box-sizing: border-box;
+	word-wrap: break-word;
+}
+
+@mixin col-padding() {
+	padding-left: $gutter;
+	padding-right: $gutter;
+	word-wrap: break-word;
+}
+
+
+
+@mixin size($num) {
+	width: calc( 100% / #{$cols} * #{$num} - #{$gutter} * 2  );
+}
+
+@mixin size-xl($num) {
+	@media #{$xl} {
+		@include size($num);
+	}
+}
+
+@mixin size-lg($num) {
+	@media #{$lg} {
+    @include size($num);
+	}
+}
+
+@mixin size-md($num) {
+	@media #{$md} {
+		@include size($num);
+	}
+}
+
+@mixin size-sm($num) {
+	@media #{$sm} {
+    @include size($num);
+	}
+}
+
+@mixin size-xs($num) {
+	@media #{$xs} {
+    @include size($num);
+	}
+}
+
+@mixin justify-content($media, $position) {
+	@media #{$media} {
+		justify-content: $position;
+	}
+}
+
+@mixin flex-direction($media, $position) {
+	@media #{$media} {
+		flex-direction: $position;
+	}
+}
+
+@mixin align-items($media, $position) {
+	@media #{$media} {
+		align-items: $position;
+	}
+}
+
+
+// медиа запроссы
+@mixin xl {
+  @media #{$xl} {
+    @content;
+  }
+}
+
+@mixin lg {
+  @media #{$lg} {
+    @content;
+  }
+}
+
+@mixin md {
+  @media #{$md} {
+    @content;
+  }
+}
+
+@mixin sm {
+  @media #{$sm} {
+    @content;
+  }
+}
+
+@mixin xs {
+  @media #{$xs} {
+    @content;
+  }
+}
+
+
+

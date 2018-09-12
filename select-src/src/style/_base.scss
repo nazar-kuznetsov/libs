@@ -1,0 +1,103 @@
+@include reset();
+html {
+  height: 100%;
+
+  font-size: 16px;
+}
+
+a {
+  outline: none;
+}
+
+// font-family: FontAwesome;
+
+body {
+  display: flex;
+  flex-direction: column;
+
+// min-width: 300px;
+  height: 100%;
+
+  color: $font-color;
+  background-color: #fff;
+
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.75;
+}
+
+
+.wrapper {
+  flex-grow: 1;
+}
+
+.container {
+  @include container();
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+video {
+  width: 100%;
+  height: auto;
+  max-height: 100%;
+}
+
+.video {
+  position: relative;
+
+  overflow: hidden;
+
+  height: 0;
+  padding-top: 30px;
+  padding-bottom: 56.25%; /* задаёт высоту контейнера для 16:9 (если 4:3 — поставьте 75%) */
+  iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.row {
+  @include row();
+}
+
+.flex {
+ @include flex();
+}
+
+.advantages-list {
+  @include justify-content($md, center);
+}
+
+.advantages {
+  @include col();
+  @include size(4);
+  @include size-md(10);
+  @include size-sm(12);
+  text-align: center;
+  margin-bottom: 35px;
+
+  &__title {
+    margin: 15px 0 10px 0;
+  }
+}
+
+.icon-time::before {
+  //content: "\f017";
+  //content: "2";
+  //font-family: FontAwesome;
+  display: block;
+  font-size: 35px;
+  color: blue;
+}
+
+
+
